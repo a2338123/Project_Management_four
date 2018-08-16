@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @customer.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Contact_person_name:</strong>
+  <%= @customer.contact_person_name %>
+</p>
+
+<p>
+  <strong>Contact_person_mobile:</strong>
+  <%= @customer.contact_person_mobile %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %> |
+<%= link_to 'Destroy', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+

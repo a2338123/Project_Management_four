@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @customerserver.code %>
+</p>
+
+<p>
+  <strong>Customerservice:</strong>
+  <%= @customerserver.customerservice %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customerserver.customer %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @customerserver.deadline %>
+</p>
+
+<p>
+  <strong>Our server:</strong>
+  <%= @customerserver.our_server %>
+</p>
+
+<%= link_to 'Edit', edit_customerserver_path(@customerserver) %> |
+<%= link_to 'Back', customerservers_path %> |
+<%= link_to 'Destroy', @customerserver, method: :delete, data: { confirm: 'Are you sure?' } %>
+

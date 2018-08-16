@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/foundation/5.5.3/css/foundation.min.css">
+
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/foundation/5.5.3/js/foundation.min.js"></script>
+	<script src="https://cdn.bootcss.com/foundation/5.5.3/js/vendor/modernizr.js"></script>
+
+<script>
+  $(function(){
+    $("input[type=button]").click(function(){
+      var txt=$("input[type=text]").val();
+        if($.trim(txt)!=""){
+          $("table tr:not('#theader')").hide().filter(":contains('"+txt+"')").show().css("background","whi    te");
+        }else{
+          $("table tr:not('#theader')").css("background","#fff").show();
+        }
+   });
+})
+  49 </script>
+
+
+<style>
+
+ul.side-nav {
+  position: fixed;
+  left: 25px;
+  top: 60px;
+  background-color: #eefaff;
+}
+ul.side-nav {
+  border-style:outset;
+  border:1px solid #bbe1f1;
+}
+ul.side-nav {
+  padding-top:25px;
+  padding-bottom:25px;
+  padding-right:0px;
+  padding-left:0px;
+}
+
+</style>
+</head>
+<body>
+
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><center>Projects</center></h1>
+</div>
+
+<ul class="side-nav">
+  <li style="font-size: 1.5em;"><%= link_to "Customers",         customers_path    %></li>
+  <li style="font-size: 1.5em;"><%= link_to "Cloudservices",     cloudservices_path %></li>
+  <li  style="font-size: 1.5em;"><%= link_to "Customerservers",   customerservers_path %></li>
+  <li  style="font-size: 1.5em;"><%= link_to "Projects",           projects_path %></li>
+</ul>
+
+<input type="text"></input>
+<input type="button" value="搜索"></input>
+
+<table class="table table-striped table-bordered table-hover tablesorter">
+
+  <thead>
+    <tr id="theader">
+      <th>Code</th>
+      <th>Name</th>
+      <th>Service</th>
+      <th>Start time</th>
+      <th>Plan complated at</th>
+      <th>Actual complated at</th>
+      <th>Status</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.code %></td>
+        <td><%= project.name %></td>
+        <td><%= project.service %></td>
+        <td><%= project.start_time %></td>
+        <td><%= project.plan_complated_at %></td>
+        <td><%= project.actual_complated_at %></td>
+        <td><%= project.status %></td>
+        <td><%= project.url %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>
+<br>
+
+<%= link_to 'Return to the home page',  home_path %>
+
+</body>
+</html>

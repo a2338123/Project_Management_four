@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @cloudservice.code %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @cloudservice.vendor %>
+</p>
+
+<p>
+  <strong>Expired at:</strong>
+  <%= @cloudservice.expired_at %>
+</p>
+
+<%= link_to 'Edit', edit_cloudservice_path(@cloudservice) %> |
+<%= link_to 'Back', cloudservices_path %> |
+<%= link_to 'Destroy', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+
